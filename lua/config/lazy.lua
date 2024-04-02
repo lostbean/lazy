@@ -16,7 +16,6 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.util.project" },
     { import = "lazyvim.plugins.extras.lang.typescript" },
     { import = "lazyvim.plugins.extras.lang.json" },
-    { import = "lazyvim.plugins.extras.lang.markdown" },
     { import = "lazyvim.plugins.extras.lang.yaml" },
 
     -- import/override with your plugins
