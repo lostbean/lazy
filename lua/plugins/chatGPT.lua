@@ -11,7 +11,7 @@ return {
 
       local wk = require("which-key")
       wk.register({
-        p = {
+        a = {
           name = "ChatGPT",
           c = { "<cmd>ChatGPT<CR>", "ChatGPT" },
           e = { "<cmd>ChatGPTEditWithInstruction<CR>", "Edit with instruction", mode = { "n", "v" } },
