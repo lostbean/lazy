@@ -12,7 +12,8 @@ return {
               "nginxfmt",
             }, "nginxfmt"),
             inherit = false,
-            args = { "--print-result", "$FILENAME" },
+            stdin = true,
+            args = { "--pipe" },
           }
         end,
       },
