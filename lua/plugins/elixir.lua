@@ -37,7 +37,7 @@ return {
         elixirls = {
           enable = true,
           settings = elixirls.settings({
-            dialyzerEnabled = false,
+            dialyzerEnabled = true,
             enableTestLenses = true,
           }),
           on_attach = function(client, bufnr)

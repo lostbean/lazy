@@ -28,4 +28,9 @@ return {
     "kylechui/nvim-surround",
     event = "VeryLazy",
   },
+
+  {
+    "folke/flash.nvim",
+    enable = false,
+  },
 }
