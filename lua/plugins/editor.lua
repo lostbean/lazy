@@ -7,21 +7,24 @@ return {
   },
 
   {
-    "smoka7/multicursors.nvim",
-    event = "VeryLazy",
-    dependencies = {
-      "smoka7/hydra.nvim",
-    },
-    opts = {},
-    cmd = { "MCstart", "MCvisual", "MCclear", "MCpattern", "MCvisualPattern", "MCunderCursor" },
+    "mg979/vim-visual-multi",
     keys = {
-      {
-        mode = { "v", "n" },
-        "<Leader>m",
-        "<cmd>MCstart<cr>",
-        desc = "Multi Cursor",
-      },
+      "<C-d>",
+      "<M-C-Down>",
+      "<M-C-Up>",
+      "\\",
     },
+    init = function()
+      vim.g.VM_Leader = "\\"
+      vim.g.VM_default_mappings = 1
+      vim.g.VM_mouse_mappings = 1
+      vim.g.VM_maps = {
+        ["Find Under"] = "<C-d>",
+        ["Find Subword Under"] = "<C-d>",
+        ["Add Cursor Down"] = "<M-C-Down>",
+        ["Add Cursor Up"] = "<M-C-Up>",
+      }
+    end,
   },
 
   {
