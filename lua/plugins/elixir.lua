@@ -33,9 +33,11 @@ return {
 
       elixir.setup({
         nextls = { enable = false },
-        credo = {},
+        credo = { enable = true },
         elixirls = {
           enable = true,
+          -- Assume elixir-ls is in PATH. Project with elixir use provide via nix.
+          cmd = "elixir-ls",
           settings = elixirls.settings({
             dialyzerEnabled = true,
             enableTestLenses = true,
@@ -61,6 +63,35 @@ return {
       end
       opts.linters_by_ft = {
         elixir = { "credo" },
+      }
+    end,
+  },
+
+  {
+    "mfussenegger/nvim-dap",
+    config = function()
+      local dap = require("dap")
+
+      dap.adapters.elixir = {
+        type = "executable",
+        -- Assume debugger is in PATH. Project with elixir use provide via nix (part of the elixir-ls derivation).
+        command = "elixir-debug-adapter",
+      }
+
+      dap.configurations.elixir = {
+        {
+          type = "elixir",
+          name = "Run Elixir Program",
+          task = "phx.server",
+          taskArgs = { "--trace" },
+          request = "launch",
+          startApps = true, -- for Phoenix projects
+          projectDir = "${workspaceFolder}",
+          requireFiles = {
+            "test/**/test_helper.exs",
+            "test/**/*_test.exs",
+          },
+        },
       }
     end,
   },
