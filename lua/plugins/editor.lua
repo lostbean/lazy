@@ -8,6 +8,7 @@ return {
 
   {
     "mg979/vim-visual-multi",
+    lazy = false,
     keys = {
       "<C-d>",
       "<M-C-Down>",
@@ -26,11 +27,6 @@ return {
         ["Add Cursor Up"] = "<M-C-Up>",
       }
     end,
-  },
-
-  {
-    "kylechui/nvim-surround",
-    event = "VeryLazy",
   },
 
   {
